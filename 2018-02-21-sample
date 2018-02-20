@@ -1,0 +1,35 @@
+//NEWS is a North East South West
+//Income parameter string like 59°55'45.27"N
+//Return double like 61.1741666666667
+protected double NEWS2Double(string strNEWS)
+        {
+            double dblNEWS = Double.NaN;
+            char[] delim = new char[] { '°', '\'', '"' };
+
+            if (Double.TryParse(strNEWS, out dblNEWS))
+            {
+                return dblNEWS;
+            }
+
+            string[] splittedNEWS = strNEWS.Split(delim);
+            try
+{
+                dblNEWS = Convert.ToDouble(splittedNEWS[0]);
+                dblNEWS = dblNEWS + Convert.ToDouble(splittedNEWS[1]) / 60;
+                dblNEWS = dblNEWS + Convert.ToDouble(splittedNEWS[2].Replace('.', ',')) / 3600;
+
+                if ((splittedNEWS[3] != "N") && (splittedNEWS[3] != "E") && (splittedNEWS[3] != "С") && (splittedNEWS[3] != "В"))
+                {
+                    dblNEWS = dblNEWS * -1;
+                }
+            }
+            finally
+{
+                if(dblNEWS == Double.NaN)
+                {
+                    dblNEWS = 0.0;
+                }
+            }
+
+            return dblNEWS;
+        }
