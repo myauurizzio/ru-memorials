@@ -13,7 +13,7 @@ protected double NEWS2Double(string strNEWS)
 
             string[] splittedNEWS = strNEWS.Split(delim);
             try
-{
+            {
                 dblNEWS = Convert.ToDouble(splittedNEWS[0]);
                 dblNEWS = dblNEWS + Convert.ToDouble(splittedNEWS[1]) / 60;
                 dblNEWS = dblNEWS + Convert.ToDouble(splittedNEWS[2].Replace('.', ',')) / 3600;
@@ -24,7 +24,7 @@ protected double NEWS2Double(string strNEWS)
                 }
             }
             finally
-{
+            {
                 if(dblNEWS == Double.NaN)
                 {
                     dblNEWS = 0.0;
