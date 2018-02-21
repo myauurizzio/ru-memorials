@@ -1,6 +1,6 @@
-//NEWS is a North East South West
-//Income parameter string like 59°55'45.27"N
-//Return double like 61.1741666666667
+//NEWS is a North East West South
+//Income parameter string like  59°55'58.67"N
+//Return double like 59.9329638888889
 protected double NEWS2Double(string strNEWS)
         {
             double dblNEWS = Double.NaN;
