@@ -16,7 +16,7 @@ protected double NEWS2Double(string strNEWS)
             {
                 dblNEWS = Convert.ToDouble(splittedNEWS[0]);
                 dblNEWS = dblNEWS + Convert.ToDouble(splittedNEWS[1]) / 60;
-                dblNEWS = dblNEWS + Convert.ToDouble(splittedNEWS[2].Replace('.', ',')) / 3600;
+                dblNEWS = dblNEWS + Convert.ToDouble(splittedNEWS[2].Replace(',', '.'), CultureInfo.InvariantCulture) / 3600;
 
                 if ((splittedNEWS[3] != "N") && (splittedNEWS[3] != "E") && (splittedNEWS[3] != "С") && (splittedNEWS[3] != "В"))
                 {
